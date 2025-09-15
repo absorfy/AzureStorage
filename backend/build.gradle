@@ -22,10 +22,15 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'
     implementation 'com.azure:azure-storage-blob:12.25.1'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.6.0'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
 tasks.named('test') {
     useJUnitPlatform()
+}
+
+springBoot {
+    mainClass.set('my.backend.BackendApplication')
 }

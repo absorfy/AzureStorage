@@ -1,0 +1,16 @@
+FROM gradle:8.14.3-jdk21-alpine AS builder
+
+WORKDIR /app
+
+COPY gradlew ./
+COPY gradle ./gradle
+COPY build.gradle ./
+COPY settings.gradle ./
+
+RUN ./gradlew dependencies || true
+
+COPY . .
+
+EXPOSE 8080
+
+CMD ["./gradlew", "bootRun"]
